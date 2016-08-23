@@ -192,8 +192,8 @@ public class Ejercicio15 extends javax.swing.JFrame {
     }//GEN-LAST:event_cmdBorrarActionPerformed
 
     private void cmdCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCalcularActionPerformed
-        String op1,op2,op3;
-        double vpres, res1=0,res2=0,res3=0;
+        String op1,op2,op3,op4;
+        double vpres, res1,res2=0,res3=0,res4=0;
           
         if (txtVpres.getText().trim().isEmpty()){
             JOptionPane.showMessageDialog(this, "Digite el valor prestado", "Error",JOptionPane.ERROR_MESSAGE);
@@ -202,10 +202,11 @@ public class Ejercicio15 extends javax.swing.JFrame {
         else{
             vpres=Double.parseDouble(txtVpres.getText());
             res1=(vpres*0.24);
-            res2=(res1/2)/4;
-            res3=(res1/2)/20;
+            res4=(vpres+res1);
+            res2=(res4/2)/4;
+            res3=(res4/2)/20;
         }
-        op1=String.valueOf(res1);
+        op1=String.valueOf(res4);
         txtTotal.setText(op1);
         op2=String.valueOf(res2);
         txtCesp.setText(op2);
