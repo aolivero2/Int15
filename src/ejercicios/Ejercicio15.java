@@ -5,6 +5,8 @@
  */
 package ejercicios;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author SERVIDOR
@@ -42,16 +44,20 @@ public class Ejercicio15 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 204, 0));
         jLabel1.setText(" Prestamos");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 140, 40));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(102, 0, 255));
         jLabel2.setText("Valor del prestamo:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, -1, 30));
 
+        txtVpres.setBackground(new java.awt.Color(204, 204, 255));
         txtVpres.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtVpresActionPerformed(evt);
@@ -65,9 +71,12 @@ public class Ejercicio15 extends javax.swing.JFrame {
         jPanel1.add(txtVpres, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 120, 30));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(102, 0, 255));
         jLabel3.setText(" Cantidad total a pagar:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 170, 30));
 
+        txtTotal.setEditable(false);
+        txtTotal.setBackground(new java.awt.Color(204, 204, 255));
         txtTotal.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtTotalKeyTyped(evt);
@@ -76,9 +85,12 @@ public class Ejercicio15 extends javax.swing.JFrame {
         jPanel1.add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 170, 30));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(102, 0, 255));
         jLabel4.setText("  Valor de cuotas especiales:");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 210, 30));
 
+        txtCesp.setEditable(false);
+        txtCesp.setBackground(new java.awt.Color(204, 204, 255));
         txtCesp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCespActionPerformed(evt);
@@ -92,9 +104,12 @@ public class Ejercicio15 extends javax.swing.JFrame {
         jPanel1.add(txtCesp, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 170, 30));
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(102, 0, 255));
         jLabel5.setText("  Valor de cuotas ordinarias:");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, 200, 20));
 
+        txtCord.setEditable(false);
+        txtCord.setBackground(new java.awt.Color(204, 204, 255));
         txtCord.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtCordKeyTyped(evt);
@@ -102,7 +117,9 @@ public class Ejercicio15 extends javax.swing.JFrame {
         });
         jPanel1.add(txtCord, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, 170, 30));
 
+        cmdCalcular.setBackground(new java.awt.Color(255, 204, 153));
         cmdCalcular.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        cmdCalcular.setForeground(new java.awt.Color(51, 0, 51));
         cmdCalcular.setText("Calcular");
         cmdCalcular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,7 +128,9 @@ public class Ejercicio15 extends javax.swing.JFrame {
         });
         jPanel1.add(cmdCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 90, 30));
 
+        cmdBorrar.setBackground(new java.awt.Color(255, 204, 153));
         cmdBorrar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        cmdBorrar.setForeground(new java.awt.Color(51, 0, 51));
         cmdBorrar.setText("Borrar");
         cmdBorrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,7 +147,7 @@ public class Ejercicio15 extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
         );
 
         pack();
@@ -143,7 +162,14 @@ public class Ejercicio15 extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCespActionPerformed
 
     private void txtVpresKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtVpresKeyTyped
-        
+        char c=evt.getKeyChar(); 
+             
+         
+          if(!Character.isDigit(c)) { 
+              getToolkit().beep(); 
+               
+              evt.consume();    
+          } 
     }//GEN-LAST:event_txtVpresKeyTyped
 
     private void txtTotalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTotalKeyTyped
@@ -159,11 +185,34 @@ public class Ejercicio15 extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCordKeyTyped
 
     private void cmdBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBorrarActionPerformed
-         
+         txtCesp.setText("");
+         txtCord.setText("");
+         txtTotal.setText("");
+         txtVpres.setText("");
     }//GEN-LAST:event_cmdBorrarActionPerformed
 
     private void cmdCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCalcularActionPerformed
+        String op1,op2,op3;
+        double vpres, res1=0,res2=0,res3=0;
+          
+        if (txtVpres.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Digite el valor prestado", "Error",JOptionPane.ERROR_MESSAGE);
+            txtVpres.requestFocusInWindow();
+        }
+        else{
+            vpres=Double.parseDouble(txtVpres.getText());
+            res1=(vpres*0.24);
+            res2=(res1/2)/4;
+            res3=(res1/2)/20;
+        }
+        op1=String.valueOf(res1);
+        txtTotal.setText(op1);
+        op2=String.valueOf(res2);
+        txtCesp.setText(op2);
+        op3=String.valueOf(res3);
+        txtCord.setText(op3);
         
+       
     }//GEN-LAST:event_cmdCalcularActionPerformed
 
     /**
